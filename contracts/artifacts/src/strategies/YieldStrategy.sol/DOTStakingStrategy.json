@@ -1,0 +1,172 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "DOTStakingStrategy",
+  "sourceName": "src/strategies/YieldStrategy.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Divested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Invested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "YieldHarvested",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "accruedYield",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "divest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "harvestYield",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "invest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "invested",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_bps",
+          "type": "uint256"
+        }
+      ],
+      "name": "setYieldRate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalValue",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "yieldRateBps",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523461002d576032600355600080546001600160a01b0319163317905561038390816100338239f35b600080fdfe608060408181526004918236101561001657600080fd5b600092833560e01c9182631411dab0146102c5575081632afcf480146102705781634019fb33146102515781638ca17995146101a15781638da5cb5b14610179578163cafb22021461015a578163d4c3eea01461012f578163e8d991d1146100a9575063f3a6a4a31461008857600080fd5b346100a557816003193601126100a5576020906003549051908152f35b5080fd5b82843461012c578060031936011261012c576001549260035493848102948186041490151715610119576020836127108604906100e88260025461032a565b6002557feb2d114a827fe0da3db4c0e374010959cf461f7ed76987aeff51666dea9add9b838251848152a151908152f35b634e487b7160e01b825260119052602490fd5b80fd5b5050346100a557816003193601126100a5576020906101536001546002549061032a565b9051908152f35b5050346100a557816003193601126100a5576020906001549051908152f35b5050346100a557816003193601126100a557905490516001600160a01b039091168152602090f35b8383346100a55760203660031901126100a55782359060015480831161020e578281039081116101fb57600155519081527f0dbc40ccd4fca1b5bf46f23e99aaefe371e661e9ca0c45dc1b79e5e321d3b99d90602090a180f35b634e487b7160e01b845260118552602484fd5b815162461bcd60e51b8152602081870152601860248201527f444f545374616b696e673a20696e73756666696369656e7400000000000000006044820152606490fd5b5050346100a557816003193601126100a5576020906002549051908152f35b9050346102c15760203660031901126102c1577fac9f7997c30b6a3cc9c74953898b5de154359339c7ec0d6d70ceb98e55db1a4b9160209135906102b68260015461032a565b60015551908152a180f35b8280fd5b849250346102c15760203660031901126102c15782546001600160a01b031633036102f257503560035580f35b602060649262461bcd60e51b835282015260156024820152742227aa29ba30b5b4b7339d103737ba1037bbb732b960591b6044820152fd5b9190820180921161033757565b634e487b7160e01b600052601160045260246000fdfea264697066735822122091a868f2f8abc8faf7306eb89bfb330bd8aaafd873781368c7580272547b647864736f6c63430008180033",
+  "deployedBytecode": "0x608060408181526004918236101561001657600080fd5b600092833560e01c9182631411dab0146102c5575081632afcf480146102705781634019fb33146102515781638ca17995146101a15781638da5cb5b14610179578163cafb22021461015a578163d4c3eea01461012f578163e8d991d1146100a9575063f3a6a4a31461008857600080fd5b346100a557816003193601126100a5576020906003549051908152f35b5080fd5b82843461012c578060031936011261012c576001549260035493848102948186041490151715610119576020836127108604906100e88260025461032a565b6002557feb2d114a827fe0da3db4c0e374010959cf461f7ed76987aeff51666dea9add9b838251848152a151908152f35b634e487b7160e01b825260119052602490fd5b80fd5b5050346100a557816003193601126100a5576020906101536001546002549061032a565b9051908152f35b5050346100a557816003193601126100a5576020906001549051908152f35b5050346100a557816003193601126100a557905490516001600160a01b039091168152602090f35b8383346100a55760203660031901126100a55782359060015480831161020e578281039081116101fb57600155519081527f0dbc40ccd4fca1b5bf46f23e99aaefe371e661e9ca0c45dc1b79e5e321d3b99d90602090a180f35b634e487b7160e01b845260118552602484fd5b815162461bcd60e51b8152602081870152601860248201527f444f545374616b696e673a20696e73756666696369656e7400000000000000006044820152606490fd5b5050346100a557816003193601126100a5576020906002549051908152f35b9050346102c15760203660031901126102c1577fac9f7997c30b6a3cc9c74953898b5de154359339c7ec0d6d70ceb98e55db1a4b9160209135906102b68260015461032a565b60015551908152a180f35b8280fd5b849250346102c15760203660031901126102c15782546001600160a01b031633036102f257503560035580f35b602060649262461bcd60e51b835282015260156024820152742227aa29ba30b5b4b7339d103737ba1037bbb732b960591b6044820152fd5b9190820180921161033757565b634e487b7160e01b600052601160045260246000fdfea264697066735822122091a868f2f8abc8faf7306eb89bfb330bd8aaafd873781368c7580272547b647864736f6c63430008180033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

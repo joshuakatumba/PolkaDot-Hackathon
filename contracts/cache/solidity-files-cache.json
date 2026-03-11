@@ -1,0 +1,438 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\AutoTreasury.sol": {
+      "lastModificationDate": 1773218783239,
+      "contentHash": "8142127f6a0d27ed0a174fc0fbc8a577",
+      "sourceName": "src/AutoTreasury.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IERC20.sol",
+        "./interfaces/IXcm.sol",
+        "./XCMRouter.sol",
+        "./strategies/YieldStrategy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "AutoTreasury"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\interfaces\\IERC20.sol": {
+      "lastModificationDate": 1773164024299,
+      "contentHash": "811886804df3fab98b860261bba1178d",
+      "sourceName": "src/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\interfaces\\IXcm.sol": {
+      "lastModificationDate": 1773164022267,
+      "contentHash": "b6e63f605ecadb6859869e7f63721ece",
+      "sourceName": "src/interfaces/IXcm.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IXcm"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\XCMRouter.sol": {
+      "lastModificationDate": 1773218261316,
+      "contentHash": "77d7f505ddddfaa9829d444138d7406a",
+      "sourceName": "src/XCMRouter.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IXcm.sol",
+        "./interfaces/IStaking.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "XCMRouter"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\strategies\\YieldStrategy.sol": {
+      "lastModificationDate": 1773164166173,
+      "contentHash": "4db14b07992f1d700bbcf02c52c66ff7",
+      "sourceName": "src/strategies/YieldStrategy.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "DOTStakingStrategy",
+        "LendingStrategy",
+        "YieldStrategy"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\mocks\\MockERC20.sol": {
+      "lastModificationDate": 1773165833064,
+      "contentHash": "8005c25794d4c262bbf3f01d7c869f5e",
+      "sourceName": "src/mocks/MockERC20.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "MockERC20"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\strategies\\PolkadotStakingStrategy.sol": {
+      "lastModificationDate": 1773215193279,
+      "contentHash": "a1c502f41aa8b6b20992c9ebbc8b3526",
+      "sourceName": "src/strategies/PolkadotStakingStrategy.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./YieldStrategy.sol",
+        "../XCMRouter.sol",
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "PolkadotStakingStrategy"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\strategies\\AssetHubLendingStrategy.sol": {
+      "lastModificationDate": 1773215195303,
+      "contentHash": "95bb8fb96d4de0c188acaebfc1a32c72",
+      "sourceName": "src/strategies/AssetHubLendingStrategy.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./YieldStrategy.sol",
+        "../XCMRouter.sol",
+        "../interfaces/IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "AssetHubLendingStrategy"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\interfaces\\IStaking.sol": {
+      "lastModificationDate": 1773217150939,
+      "contentHash": "20c81db10374fcb1c643d21f8e22aaff",
+      "sourceName": "src/interfaces/IStaking.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IStaking"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\strategies\\NativeStakingStrategy.sol": {
+      "lastModificationDate": 1773217245410,
+      "contentHash": "5e3022822068e0903460ede67688b184",
+      "sourceName": "src/strategies/NativeStakingStrategy.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./YieldStrategy.sol",
+        "../interfaces/IStaking.sol",
+        "../XCMRouter.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "NativeStakingStrategy"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\MockStakingPrecompile.sol": {
+      "lastModificationDate": 1773218257225,
+      "contentHash": "71fd29ddc740a877b2c34610363ed7c9",
+      "sourceName": "src/MockStakingPrecompile.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IStaking.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "MockStakingPrecompile"
+      ]
+    }
+  }
+}

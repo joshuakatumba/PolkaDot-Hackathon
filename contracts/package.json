@@ -1,0 +1,25 @@
+{
+  "name": "autotreasury-contracts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:local": "npx hardhat run scripts/deploy.js",
+    "deploy:westend": "npx hardhat run scripts/deploy.js --network westendHub"
+  },
+  "keywords": [
+    "polkadot",
+    "xcm",
+    "vault",
+    "defi"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "XCM AutoTreasury smart contracts for Polkadot Hub",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^17.3.1",
+    "hardhat": "^2.28.6"
+  }
+}

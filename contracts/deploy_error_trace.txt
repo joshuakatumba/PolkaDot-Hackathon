@@ -1,0 +1,11 @@
+Deploying with account: 0xAd678602388d3A4916375de8B2de8caEcf51d830
+Balance: 0.0
+
+1. Deploying XCMRouter...
+
+ProviderError: Transaction is temporarily banned
+    at HttpProvider.request (C:\Users\School\Desktop\Programming\AutoTreasury\contracts\node_modules\hardhat\src\internal\core\providers\http.ts:116:21)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at HardhatEthersSigner.sendTransaction (C:\Users\School\Desktop\Programming\AutoTreasury\contracts\node_modules\@nomicfoundation\hardhat-ethers\src\signers.ts:185:18)
+    at manualDeploy (file:///C:/Users/School/Desktop/Programming/AutoTreasury/contracts/scripts/deploy.js:19:20)
+    at main (file:///C:/Users/School/Desktop/Programming/AutoTreasury/contracts/scripts/deploy.js:30:21)

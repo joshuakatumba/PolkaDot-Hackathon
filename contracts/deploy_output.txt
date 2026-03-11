@@ -1,0 +1,47 @@
+Deploying with account: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+Balance: 9999.994832431
+
+1. Deploying Mock Tokens...
+     Tx Hash: 0x88e8af92cb2eb339ad0dbb99464e673b4428d93bf7002e18abe68d3f63fa4e25
+     Tx Hash: 0x9eb412577f15c7db8920561745536431cefe949c826c41c598c451c75c10bd9e
+   Mock DOT: 0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82
+   Mock USDC: 0x9A676e781A523b5d0C0e43731313A708CB607508
+
+2. Deploying XCMRouter...
+     Tx Hash: 0xe0f4a4afee03f4c23f8a024834fa1981c50f446330a648633a3c630d72449e63
+   XCMRouter: 0x0B306BF915C4d645ff596e518fAf3F9669b97016
+
+2.1 Deploying Mock Staking Precompile...
+     Tx Hash: 0x9af74ba6552c59c9228c7fe799777662a23734ec2907a719423003dcca4b6b2e
+   MockStakingPrecompile: 0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1
+   Linked MockStaking -> XCMRouter
+
+3. Deploying AutoTreasury...
+     Tx Hash: 0xc46887c6b9dc2ba22f8c76714864855ee8f4d2aa6628a04459a87810fa3edcae
+   AutoTreasury: 0x68B1D87F95878fE05B998F19b66F4baba5De1aed
+
+4. Linking XCMRouter -> Treasury...
+   Done.
+
+5. Deploying NativeStakingStrategy...
+     Tx Hash: 0xe1b5ffe1d1d1754201f83f181486fac8aed588396a6fe554e79e9f5b48fa3eb5
+   NativeStakingStrategy: 0xc6e7DF5E7b4f2A278906862b61205850344D4e7d
+
+6. Deploying AssetHubLendingStrategy...
+     Tx Hash: 0x798729df7b1ac30f87c3c3efe6805a69b03ce84c1c033986f3eb94ee05d17259
+   AssetHubLendingStrategy: 0x59b670e9fA9D0A427751Af201D676719a970857b
+
+7. Configuring Treasury...
+   Done.
+
+═══════════════════════════════════════
+  DEPLOYMENT COMPLETE
+═══════════════════════════════════════
+  XCMRouter:                0x0B306BF915C4d645ff596e518fAf3F9669b97016
+  AutoTreasury:             0x68B1D87F95878fE05B998F19b66F4baba5De1aed
+  NativeStakingStrategy:    0xc6e7DF5E7b4f2A278906862b61205850344D4e7d
+  AssetHubLendingStrategy:  0x59b670e9fA9D0A427751Af201D676719a970857b
+  Mock DOT:                 0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82
+  Mock USDC:                0x9A676e781A523b5d0C0e43731313A708CB607508
+═══════════════════════════════════════
+

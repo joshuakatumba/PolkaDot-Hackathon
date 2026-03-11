@@ -1,0 +1,42 @@
+﻿Deploying with account: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+Balance: 9999.990142144101468474
+
+1. Deploying Mock Tokens...
+     Tx Hash: 0xbf6992b1d9d174a0188eb583f40037003f039f0e75d9b09311d55a305ffd3c11
+     Tx Hash: 0x5e0339f5a48594ca69dc2414e92d121038c4eed330b0100c1b620418d922ffbc
+   Mock DOT: 0x9E545E3C0baAB3E08CdfD552C960A1050f373042
+   Mock USDC: 0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9
+
+2. Deploying XCMRouter...
+     Tx Hash: 0x32b89fb6ff04a98d50b18f55b24a56867f24b166e86fd0a200d319f623153138
+   XCMRouter: 0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8
+
+3. Deploying AutoTreasury...
+     Tx Hash: 0xf0351d6e52f5229a1bbba3b8efe3c9a35deabe3eba407b40f607640840c0fd1f
+   AutoTreasury: 0x851356ae760d987E095750cCeb3bC6014560891C
+
+4. Linking XCMRouter -> Treasury...
+   Done.
+
+5. Deploying NativeStakingStrategy...
+     Tx Hash: 0x82101b2e6298ef8802d073b2e2ecc7442b67f644f5e0460d6c075b03fcb4dcea
+   NativeStakingStrategy: 0x95401dc811bb5740090279Ba06cfA8fcF6113778
+
+6. Deploying AssetHubLendingStrategy...
+     Tx Hash: 0x8f27517d23021441c3336d1380fa2d4aca5070b7ed0745ab3f4d2ca9b44df16d
+   AssetHubLendingStrategy: 0x998abeb3E57409262aE5b751f60747921B33613E
+
+7. Configuring Treasury...
+   Done.
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  DEPLOYMENT COMPLETE
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+  XCMRouter:                0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8
+  AutoTreasury:             0x851356ae760d987E095750cCeb3bC6014560891C
+  NativeStakingStrategy:    0x95401dc811bb5740090279Ba06cfA8fcF6113778
+  AssetHubLendingStrategy:  0x998abeb3E57409262aE5b751f60747921B33613E
+  Mock DOT:                 0x9E545E3C0baAB3E08CdfD552C960A1050f373042
+  Mock USDC:                0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+
