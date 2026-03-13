@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\AutoTreasury.sol": {
-      "lastModificationDate": 1773218783239,
-      "contentHash": "8142127f6a0d27ed0a174fc0fbc8a577",
+      "lastModificationDate": 1773426727249,
+      "contentHash": "94a56698ffa996c40838347b3b1d65ef",
       "sourceName": "src/AutoTreasury.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -118,8 +118,8 @@
       ]
     },
     "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\XCMRouter.sol": {
-      "lastModificationDate": 1773218261316,
-      "contentHash": "77d7f505ddddfaa9829d444138d7406a",
+      "lastModificationDate": 1773419111236,
+      "contentHash": "1c1c03e6456df5a736bda293ffbe44d6",
       "sourceName": "src/XCMRouter.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -158,8 +158,8 @@
       ]
     },
     "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\strategies\\YieldStrategy.sol": {
-      "lastModificationDate": 1773164166173,
-      "contentHash": "4db14b07992f1d700bbcf02c52c66ff7",
+      "lastModificationDate": 1773423440769,
+      "contentHash": "621ee2d6050c00fd1ef2f2faf9a381a5",
       "sourceName": "src/strategies/YieldStrategy.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -186,7 +186,9 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "../interfaces/IERC20.sol"
+      ],
       "versionPragmas": [
         "^0.8.24"
       ],
@@ -432,6 +434,45 @@
       ],
       "artifacts": [
         "MockStakingPrecompile"
+      ]
+    },
+    "C:\\Users\\School\\Desktop\\Programming\\AutoTreasury\\contracts\\src\\mocks\\MockXcm.sol": {
+      "lastModificationDate": 1773423194465,
+      "contentHash": "56b362db5b8499b77a60f5bbdbc3d48e",
+      "sourceName": "src/mocks/MockXcm.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IXcm.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "MockXcm"
       ]
     }
   }

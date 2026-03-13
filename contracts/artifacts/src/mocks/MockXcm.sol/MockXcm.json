@@ -1,0 +1,115 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "MockXcm",
+  "sourceName": "src/mocks/MockXcm.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "message",
+          "type": "bytes"
+        }
+      ],
+      "name": "XcmExecuted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "dest",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "message",
+          "type": "bytes"
+        }
+      ],
+      "name": "XcmSent",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "message",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "execute",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "dest",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "message",
+          "type": "bytes"
+        }
+      ],
+      "name": "send",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "weighMessage",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "refTime",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "proofSize",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080806040523461001657610212908161001c8239f35b600080fdfe60806040818152600436101561001457600080fd5b600091823560e01c9081631f6a1eb9146100f65750806347400c23146100ab57637f0a3bf91461004357600080fd5b346100a7576020907f50332e75544dc8985c608696cb932a0b259cd5706c9bc0daf8b44cdc05aa22ba61009d61007836610170565b610090879593949551958695898752898701916101bb565b91848303898601526101bb565b0390a15160018152f35b5080fd5b5090346100f35760203660031901126100f3576004359067ffffffffffffffff82116100f357506100e090369060040161013d565b50508051620f4240815260646020820152f35b80fd5b8284346100f357507f440a12289c6dfbf171a6ae243d453cb9088ac512ff11d2f165372063bb3455928260209361009d61012f36610170565b5050878452878401916101bb565b9181601f8401121561016b5782359167ffffffffffffffff831161016b576020838186019501011161016b57565b600080fd5b604060031982011261016b5767ffffffffffffffff9160043583811161016b578261019d9160040161013d565b9390939260243591821161016b576101b79160040161013d565b9091565b908060209392818452848401376000828201840152601f01601f191601019056fea2646970667358221220e958da3e7ca736d716288b6c1b2dfa2582911c33769b19efd5a8d4963110e60b64736f6c63430008180033",
+  "deployedBytecode": "0x60806040818152600436101561001457600080fd5b600091823560e01c9081631f6a1eb9146100f65750806347400c23146100ab57637f0a3bf91461004357600080fd5b346100a7576020907f50332e75544dc8985c608696cb932a0b259cd5706c9bc0daf8b44cdc05aa22ba61009d61007836610170565b610090879593949551958695898752898701916101bb565b91848303898601526101bb565b0390a15160018152f35b5080fd5b5090346100f35760203660031901126100f3576004359067ffffffffffffffff82116100f357506100e090369060040161013d565b50508051620f4240815260646020820152f35b80fd5b8284346100f357507f440a12289c6dfbf171a6ae243d453cb9088ac512ff11d2f165372063bb3455928260209361009d61012f36610170565b5050878452878401916101bb565b9181601f8401121561016b5782359167ffffffffffffffff831161016b576020838186019501011161016b57565b600080fd5b604060031982011261016b5767ffffffffffffffff9160043583811161016b578261019d9160040161013d565b9390939260243591821161016b576101b79160040161013d565b9091565b908060209392818452848401376000828201840152601f01601f191601019056fea2646970667358221220e958da3e7ca736d716288b6c1b2dfa2582911c33769b19efd5a8d4963110e60b64736f6c63430008180033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

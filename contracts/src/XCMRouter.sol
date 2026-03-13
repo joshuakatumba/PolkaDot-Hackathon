@@ -21,6 +21,10 @@ contract XCMRouter {
     uint32 public constant ASSET_HUB_PARA_ID = 1000;
     uint32 public constant RELAY_CHAIN_ID = 0; // Parents = 1 to reach relay
 
+    /// @notice Asset Conversion pallet on Asset Hub (Polkadot)
+    uint8 public constant ASSET_CONVERSION_PALLET_INDEX = 15;
+    uint8 public constant SWAP_CALL_INDEX = 0; // swap_exact_tokens_for_tokens
+
     address public owner;
     address public treasury;
 
@@ -111,6 +115,44 @@ contract XCMRouter {
 
         payload = abi.encodePacked(
             hex"04",
+            destination,
+            _encodeTransact(call)
+        );
+    }
+
+    /**
+     * @notice Build a swap instruction for Asset Hub (using AssetConversion pallet).
+     * @param assetIn The asset to swap from.
+     * @param assetOut The asset to swap to.
+     * @param amountIn The amount to swap.
+     * @param amountOutMin Minimum amount of assetOut to receive.
+     */
+    function buildSwapOnAssetHub(
+        address assetIn,
+        address assetOut,
+        uint256 amountIn,
+        uint256 amountOutMin
+    ) external pure returns (bytes memory payload) {
+        bytes memory destination = _encodeParachainDestination(ASSET_HUB_PARA_ID);
+        
+        // Path: [assetIn, assetOut]
+        bytes memory path = _encodeAssetPath(assetIn, assetOut);
+        
+        // AssetConversion::swap_exact_tokens_for_tokens(path, amount_in, amount_out_min, send_to, keep_alive)
+        // Note: For simplicity, we use fixed uint128 instead of Compact encoding for amounts in this demo,
+        // although real Substrate calls use Compact<u128>.
+        bytes memory call = abi.encodePacked(
+            ASSET_CONVERSION_PALLET_INDEX,
+            SWAP_CALL_INDEX,
+            path,
+            uint128(amountIn),
+            uint128(amountOutMin),
+            _encodeAssetMultiLocation(address(0)), // send_to: Here (0x0000 in MultiLocation usually means 'here' relative to context)
+            uint8(0) // keep_alive: false
+        );
+
+        payload = abi.encodePacked(
+            hex"04", // V4
             destination,
             _encodeTransact(call)
         );
@@ -214,6 +256,16 @@ contract XCMRouter {
             uint8(1),                        // RequireWeightAtMost (v4)
             uint64(1000000000), uint64(10000), // Weight (refTime, proofSize)
             call
+        );
+    }
+
+    function _encodeAssetPath(address a, address b) internal pure returns (bytes memory) {
+        // Vec<MultiLocation> with 2 items. 
+        // In SCALE, a Vec of length 2 starts with compact-encoded 2 (0x08).
+        return abi.encodePacked(
+            uint8(0x08),
+            _encodeAssetMultiLocation(a),
+            _encodeAssetMultiLocation(b)
         );
     }
 }

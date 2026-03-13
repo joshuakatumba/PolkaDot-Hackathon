@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+import "../interfaces/IERC20.sol";
+
 /// @title YieldStrategy — Abstract base for vault yield strategies
 abstract contract YieldStrategy {
     /// @notice Invest assets into the strategy.
@@ -22,6 +24,7 @@ contract DOTStakingStrategy is YieldStrategy {
     address public owner;
     uint256 public invested;
     uint256 public accruedYield;
+    address public asset;
 
     /// @notice Yield rate per harvest call (basis points, e.g. 50 = 0.5%)
     uint256 public yieldRateBps = 50;
@@ -30,8 +33,9 @@ contract DOTStakingStrategy is YieldStrategy {
     event Divested(uint256 amount);
     event YieldHarvested(uint256 amount);
 
-    constructor() {
+    constructor(address _asset) {
         owner = msg.sender;
+        asset = _asset;
     }
 
     function invest(uint256 amount) external override {
@@ -42,6 +46,7 @@ contract DOTStakingStrategy is YieldStrategy {
     function divest(uint256 amount) external override {
         require(amount <= invested, "DOTStaking: insufficient");
         invested -= amount;
+        require(IERC20(asset).transfer(msg.sender, amount), "DOTStaking: transfer failed");
         emit Divested(amount);
     }
 
@@ -70,13 +75,15 @@ contract LendingStrategy is YieldStrategy {
     uint256 public invested;
     uint256 public accruedYield;
     uint256 public yieldRateBps = 30; // 0.3% per harvest
+    address public asset;
 
     event Invested(uint256 amount);
     event Divested(uint256 amount);
     event YieldHarvested(uint256 amount);
 
-    constructor() {
+    constructor(address _asset) {
         owner = msg.sender;
+        asset = _asset;
     }
 
     function invest(uint256 amount) external override {
@@ -87,6 +94,7 @@ contract LendingStrategy is YieldStrategy {
     function divest(uint256 amount) external override {
         require(amount <= invested, "Lending: insufficient");
         invested -= amount;
+        require(IERC20(asset).transfer(msg.sender, amount), "Lending: transfer failed");
         emit Divested(amount);
     }
 

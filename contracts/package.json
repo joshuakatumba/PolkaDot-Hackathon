@@ -6,7 +6,10 @@
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
     "deploy:local": "npx hardhat run scripts/deploy.js",
-    "deploy:westend": "npx hardhat run scripts/deploy.js --network westendHub"
+    "deploy:westend": "npx hardhat run scripts/deploy.js --network westendHub",
+    "test:swap": "hardhat run scripts/test_swap_payload.js",
+    "get-swap": "hardhat run scripts/get_swap_payload.js",
+    "test:savings": "hardhat run scripts/verify_savings_flow.js"
   },
   "keywords": [
     "polkadot",

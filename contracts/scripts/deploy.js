@@ -10,19 +10,13 @@ async function main() {
   console.log("Deploying with account:", deployer.address);
   console.log("Balance:", ethers.formatEther(await ethers.provider.getBalance(deployer.address)));
 
-  const txOptions = { gasLimit: 5000000, gasPrice: 1000000000 }; // Legacy tx for Westend Hub
-
-  // Helper to manually deploy avoiding ethers v6 waitForDeployment issues on Westend
+  // Local deployment doesn't need hardcoded gas limits
   async function manualDeploy(contractName, args = []) {
     const factory = await ethers.getContractFactory(contractName);
-    const tx = await factory.getDeployTransaction(...args, txOptions);
-    const sentTx = await deployer.sendTransaction(tx);
-    console.log(`     Tx Hash: ${sentTx.hash}`);
-    await sentTx.wait();
-    
-    // Calculate address manually assuming contractAddress might be missing from receipt
-    const address = ethers.getCreateAddress({ from: deployer.address, nonce: sentTx.nonce });
-    return factory.attach(address);
+    const contract = await factory.deploy(...args);
+    await contract.waitForDeployment();
+    console.log(`     Deployed to: ${await contract.getAddress()}`);
+    return contract;
   }
 
   // 1. Deploy Mock Tokens (for local testing)
@@ -46,23 +40,21 @@ async function main() {
   const mockStakingAddress = await mockStaking.getAddress();
   console.log("   MockStakingPrecompile:", mockStakingAddress);
   
-  // Link Mock Staking to Router
   await (await xcmRouter.setPrecompileAddresses(
     "0x00000000000000000000000000000000000a0000", // Keep default XCM
-    mockStakingAddress,
-    txOptions
+    mockStakingAddress
   )).wait();
   console.log("   Linked MockStaking -> XCMRouter");
 
   // 3. Deploy AutoTreasury
   console.log("\n3. Deploying AutoTreasury...");
-  const treasury = await manualDeploy("AutoTreasury", [xcmRouterAddress]);
+  const treasury = await manualDeploy("AutoTreasury", [xcmRouterAddress, mockDOTAddress]);
   const treasuryAddress = await treasury.getAddress();
   console.log("   AutoTreasury:", treasuryAddress);
 
   // 4. Link XCMRouter to Treasury
   console.log("\n4. Linking XCMRouter -> Treasury...");
-  const tx1 = await xcmRouter.setTreasury(treasuryAddress, txOptions);
+  const tx1 = await xcmRouter.setTreasury(treasuryAddress);
   await tx1.wait();
   console.log("   Done.");
 
@@ -78,12 +70,10 @@ async function main() {
   const assetHubLendingAddress = await assetHubLending.getAddress();
   console.log("   AssetHubLendingStrategy:", assetHubLendingAddress);
 
-  // 7. Configure Treasury (Assets and Strategies)
+  // 7. Configure Treasury (Strategies only)
   console.log("\n7. Configuring Treasury...");
-  await (await treasury.addAsset(mockDOTAddress, txOptions)).wait();
-  await (await treasury.addAsset(mockUSDCAddress, txOptions)).wait();
-  await (await treasury.addStrategy(nativeStakingAddress, txOptions)).wait();
-  await (await treasury.addStrategy(assetHubLendingAddress, txOptions)).wait();
+  await (await treasury.addStrategy(nativeStakingAddress)).wait();
+  await (await treasury.addStrategy(assetHubLendingAddress)).wait();
   console.log("   Done.");
 
   // Summary
@@ -97,6 +87,16 @@ async function main() {
   console.log("  Mock DOT:                ", mockDOTAddress);
   console.log("  Mock USDC:               ", mockUSDCAddress);
   console.log("═══════════════════════════════════════\n");
+
+  const fs = await import("fs");
+  fs.writeFileSync("deployed.json", JSON.stringify({
+    XCMRouter: xcmRouterAddress,
+    AutoTreasury: treasuryAddress,
+    NativeStakingStrategy: nativeStakingAddress,
+    AssetHubLendingStrategy: assetHubLendingAddress,
+    MockDOT: mockDOTAddress,
+    MockUSDC: mockUSDCAddress
+  }, null, 2));
 }
 
 main()

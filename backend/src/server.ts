@@ -41,12 +41,12 @@ io.on("connection", (socket) => {
 });
 
 // Real-time Event Listeners
-vault.on("Deposited", async (user: string, asset: string, amount: bigint, shares: bigint, event: any) => {
-  console.log(`[Event] Deposited: ${user} - ${ethers.formatEther(amount)}`);
+vault.on("Saved", async (user: string, amount: bigint, event: any) => {
+  console.log(`[Event] Saved: ${user} - ${ethers.formatEther(amount)}`);
   const data = { 
-    type: "Deposit", 
+    type: "Deposit", // keeping type Deposit for frontend compatibility if needed, or 'Save'
     user, 
-    asset, 
+    asset: "DOT", 
     amount: ethers.formatEther(amount), 
     txHash: event.log.transactionHash 
   };
@@ -58,11 +58,11 @@ vault.on("Deposited", async (user: string, asset: string, amount: bigint, shares
   }
 });
 
-vault.on("Rebalanced", async (timestamp: bigint, event: any) => {
-  console.log(`[Event] Rebalanced at ${new Date(Number(timestamp) * 1000).toISOString()}`);
+vault.on("YieldHarvested", async (totalYield: bigint, event: any) => {
+  console.log(`[Event] YieldHarvested at ${new Date().toISOString()} - ${ethers.formatEther(totalYield)}`);
   const data = { 
-    type: "Rebalance", 
-    timestamp: Number(timestamp), 
+    type: "Rebalance", // Map to frontend Rebalance concept
+    timestamp: Date.now() / 1000, 
     txHash: event.log.transactionHash 
   };
   io.emit("vault_event", data);
@@ -73,12 +73,12 @@ vault.on("Rebalanced", async (timestamp: bigint, event: any) => {
   }
 });
 
-vault.on("YieldClaimed", async (user: string, amount: bigint, event: any) => {
-  console.log(`[Event] YieldClaimed: ${user} - ${ethers.formatEther(amount)}`);
+vault.on("CrossChainPayment", async (user: string, targetParaId: bigint, targetAsset: string, yieldAmount: bigint, event: any) => {
+  console.log(`[Event] CrossChainPayment: ${user} paid on ${targetParaId} with ${ethers.formatEther(yieldAmount)} yield`);
   const data = { 
-    type: "YieldClaim", 
+    type: "YieldClaim", // Map to frontend YieldClaim concept
     user, 
-    amount: ethers.formatEther(amount), 
+    amount: ethers.formatEther(yieldAmount), 
     txHash: event.log.transactionHash 
   };
   io.emit("vault_event", data);
@@ -159,8 +159,8 @@ app.get("/api/vault/stats", async (req: Request, res: Response) => {
     const startBlock = Math.max(0, blockNumber - 1000);
     
     const [deposits, rebalances] = await Promise.all([
-      vault.queryFilter(vault.filters.Deposited(), startBlock, blockNumber),
-      vault.queryFilter(vault.filters.Rebalanced(), startBlock, blockNumber),
+      vault.queryFilter(vault.filters.Saved(), startBlock, blockNumber),
+      vault.queryFilter(vault.filters.YieldHarvested(), startBlock, blockNumber),
     ]);
 
     const activityFeed = [
