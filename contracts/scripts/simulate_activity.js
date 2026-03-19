@@ -4,10 +4,17 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Contract addresses from latest deployment (Local Hardhat)
-const VAULT_ADDRESS = "0x68B1D87F95878fE05B998F19b66F4baba5De1aed";
-const DOT_ADDRESS = "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82";
-const USDC_ADDRESS = "0x9A676e781A523b5d0C0e43731313A708CB607508";
+// Load contract addresses from latest deployment
+import { readFileSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const deployed = JSON.parse(readFileSync(join(__dirname, '..', 'deployed.json'), 'utf8'));
+
+const VAULT_ADDRESS = deployed.AutoTreasury;
+const DOT_ADDRESS = deployed.MockDOT;
+const USDC_ADDRESS = deployed.MockUSDC;
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
